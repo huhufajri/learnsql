@@ -1,0 +1,43 @@
+Jika ada kasus dimana ada nomor surat atau nomor lainnya dengan format string tanpa memakai leading zero seperti
+
+10/ABC/2021/XYZ
+11/ABC/2021/XYZ
+12/ABC/2021/XYZ
+13/ABC/2021/XYZ
+1/ABC/2021/XYZ
+15/ABC/2021/XYZ
+2/ABC/2021/XYZ
+20/ABC/2021/XYZ
+14/ABC/2021/XYZ
+1/ABC/2022/XYZ
+10/ABC/2022/XYZ
+11/ABC/2022/XYZ
+12/ABC/2022/XYZ
+13/ABC/2022/XYZ
+14/ABC/2022/XYZ
+15/ABC/2022/XYZ
+2/ABC/2022/XYZ
+
+menjadi
+
+1/ABC/2021/XYZ
+2/ABC/2021/XYZ
+10/ABC/2021/XYZ
+11/ABC/2021/XYZ
+12/ABC/2021/XYZ
+13/ABC/2021/XYZ
+14/ABC/2021/XYZ
+15/ABC/2021/XYZ
+20/ABC/2021/XYZ
+1/ABC/2022/XYZ
+2/ABC/2022/XYZ
+10/ABC/2022/XYZ
+11/ABC/2022/XYZ
+12/ABC/2022/XYZ
+13/ABC/2022/XYZ
+14/ABC/2022/XYZ
+15/ABC/2022/XYZ
+
+dengan syarat mempunyai sebuah kolom penanggalan sebagai acuan maka sql yang dapat di gunakan adalah sebagai berikut
+
+select ID from testing  order by tanggal, ABS(ID) asc
